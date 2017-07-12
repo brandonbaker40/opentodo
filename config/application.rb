@@ -29,13 +29,14 @@ module Opentodo
 
 
 
-    config.middleware.insert_before 0, "Rack::Cors" do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins 'example.com'
         resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
     end
 
-    config.middleware.use Rack::Attack
+
+    #config.middleware.use Rack::Attack
   end
 end
