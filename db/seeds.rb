@@ -14,5 +14,17 @@
  end
  #users = User.all
 
+
+ 75.times do
+    List.create!(
+    title:      Faker::StarWars.planet,
+    user_id:    Faker::Number.between(1, User.count)
+    )
+  end
+  #lists = List.all
+
+
+
  puts "Seed finished"
  puts "#{User.count} users created"
+ puts "#{List.count} lists created"
