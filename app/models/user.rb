@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :lists
   # Assign an API key on create
   before_create do |user|
     user.api_key = user.generate_api_key
