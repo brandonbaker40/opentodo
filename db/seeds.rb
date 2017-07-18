@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 25.times do
    User.create!(
-   username:     Faker::Internet.user_name,
-   email:    Faker::Internet.free_email,
-   password: Faker::Internet.password(8)
+   username:      Faker::Internet.user_name,
+   email:         Faker::Internet.free_email,
+   password:      Faker::Internet.password(8)
    )
  end
  #users = User.all
@@ -17,14 +17,24 @@
 
  75.times do
     List.create!(
-    title:      Faker::StarWars.planet,
-    user_id:    Faker::Number.between(1, User.count)
+    title:        Faker::StarWars.planet,
+    user_id:      Faker::Number.between(1, User.count)
     )
   end
   #lists = List.all
+
+  200.times do
+     Item.create!(
+     description:       Faker::ChuckNorris.fact,
+     completed:         Faker::Boolean.boolean,
+     list_id:           Faker::Number.between(1, List.count)
+     )
+   end
+   #items = Item.all
 
 
 
  puts "Seed finished"
  puts "#{User.count} users created"
  puts "#{List.count} lists created"
+ puts "#{Item.count} lists created"

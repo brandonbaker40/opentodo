@@ -1,18 +1,10 @@
-# Rails.application.routes.draw do
-#     namespace :api do
-#       namespace :v1 do
-#         resources :users do
-#           resources :lists
-#         end
-#       end
-#     end
-# end
-
 Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
         resources :users do
-          resources :lists
+          resources :lists do
+            resources :items
+          end
         end
       end
     end

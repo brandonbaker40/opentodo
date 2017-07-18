@@ -1,11 +1,6 @@
 module Api::V1
   class ListsController < ApiController
 
-    # GET /v1/users
-    # def index
-    #   render json: List.all
-    # end
-
     def index
          user = User.find(params[:user_id])
          list = List.all
