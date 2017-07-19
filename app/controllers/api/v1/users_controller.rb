@@ -19,11 +19,21 @@ module Api::V1
      end
     end
 
+    # Should I allow the API to update users? 
+    # def update
+    #  user = User.find(params[:id])
+    #  if user.update(user_params)
+    #    render json: user
+    #  else
+    #    render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+    #  end
+    # end
+
     def destroy
      begin
        user = User.find(params[:id])
        user.destroy
-       
+
        render json: {}, status: :no_content
      rescue ActiveRecord::RecordNotFound
        render :json => {}, :status => :not_found

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
         end
 
         resources :lists, only: [] do
-          resources :items, only: [:create, :index]
+          resources :items, except: [:show, :destroy] #only: [:create, :index]
         end
 
         resources :lists, only: [:show, :destroy]
